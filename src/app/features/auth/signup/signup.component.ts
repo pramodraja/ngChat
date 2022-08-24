@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignupComponent implements OnInit {
-  form!: FormGroup;
+  form!: UntypedFormGroup;
 
   constructor(
     private auth: AuthService,
@@ -20,10 +20,10 @@ export class SignupComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      displayName: new FormControl('', [Validators.minLength(3)]),
-      email: new FormControl('', [Validators.email]),
-      password: new FormControl('', [Validators.minLength(6)]),
+    this.form = new UntypedFormGroup({
+      displayName: new UntypedFormControl('', [Validators.minLength(3)]),
+      email: new UntypedFormControl('', [Validators.email]),
+      password: new UntypedFormControl('', [Validators.minLength(6)]),
     })
   }
 

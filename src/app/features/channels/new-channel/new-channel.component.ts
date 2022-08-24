@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-new-channel',
@@ -11,7 +11,7 @@ export class NewChannelComponent {
   @Output()
   saved = new EventEmitter<string>();
 
-  channelName = new FormControl();
+  channelName = new UntypedFormControl();
 
   onCreate() {
     this.saved.emit(this.channelName.value);

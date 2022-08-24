@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { debounceTime, Observable, startWith, switchMap } from 'rxjs';
 import { Channel, UserResponse } from 'stream-chat';
@@ -17,7 +17,7 @@ export class InviteButtonComponent implements OnInit {
 
   showDialog = false;
 
-  userSearchField = new FormControl();
+  userSearchField = new UntypedFormControl();
 
   availableUsers$!: Observable<UserResponse<DefaultStreamChatGenerics>[]>;
 
